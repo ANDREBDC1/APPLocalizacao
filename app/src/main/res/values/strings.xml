@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LocalizacaoAPP</string>
+    <string name="name">Name</string>
+    <string-array name="array_spinner_Opc">
+        <item>Minutos</item>
+        <item>Horas</item>
+        <item>Dias</item>
+        <item>Meses</item>
+    </string-array>
+</resources>
