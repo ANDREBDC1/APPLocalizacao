@@ -9,7 +9,7 @@ class ServicoCordenadas{
          var cordenada = Cordenada()
          var localizacao = Localizacao(context)
          cordenada.latitude = localizacao.getLatitude()
-         cordenada.logitude =  localizacao.getLogitude()
+         cordenada.longitude =  localizacao.getLogitude()
          cordenada.imei = Sistema(context).getIMEI()
          return  cordenada
      }

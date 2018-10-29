@@ -22,12 +22,15 @@ class Localizacao : GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConne
 
     @SuppressLint("MissingPermission")
     private fun setLocalizacao(context: Context){
-        Permissoes.solicitarPermissoes(context)
+        if(!Permissoes.solicitarPermissoes(context)){
+            return;
+        }
         var locationManager  = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
         if (location == null){
             location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
         }
+
 
     }
     @Synchronized

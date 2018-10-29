@@ -19,11 +19,11 @@ public class Permissoes {
 
                 ActivityCompat.requestPermissions((Activity) context,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET, Manifest.permission.READ_PHONE_STATE}, 0);
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
 
     }
 

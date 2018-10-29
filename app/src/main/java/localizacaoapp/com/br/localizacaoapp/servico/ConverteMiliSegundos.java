@@ -1,5 +1,7 @@
 package localizacaoapp.com.br.localizacaoapp.servico;
 
+import java.io.ObjectOutputStream;
+
 public class ConverteMiliSegundos {
     public static long converteDias(int qtdDias){
         return qtdDias * converteHoras(24);
@@ -16,4 +18,6 @@ public class ConverteMiliSegundos {
     public static long converteMinutos(int qdtMinutos){
         return qdtMinutos * (60 * 1000);
     }
+
+
 }

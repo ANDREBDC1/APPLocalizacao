@@ -9,7 +9,9 @@ import localizacaoapp.com.br.localizacaoapp.permissoes.Permissoes
 public class Sistema(var context: Context){
     @SuppressLint("MissingPermission")
     fun getIMEI() : String{
-        Permissoes.solicitarPermissoes(context)
+        if(!Permissoes.solicitarPermissoes(context)){
+            return ""
+        }
         var telephonyManager  = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         var IMEI = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             telephonyManager.imei

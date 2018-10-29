@@ -7,7 +7,7 @@ import java.util.Date;
 public class Cordenada {
     private int id;
     private double Latitude;
-    private double Logitude;
+    private double Longitude;
     private Date Data;
     private String IMEI;
 
@@ -27,12 +27,12 @@ public class Cordenada {
         Latitude = latitude;
     }
 
-    public double getLogitude() {
-        return Logitude;
+    public double getLongitude() {
+        return Longitude;
     }
 
-    public void setLogitude(double logitude) {
-        Logitude = logitude;
+    public void setLongitude(double longitude) {
+        Longitude = longitude;
     }
 
     public Date getData() {

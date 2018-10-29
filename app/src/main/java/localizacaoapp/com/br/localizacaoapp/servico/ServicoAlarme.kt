@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.os.SystemClock
 import android.util.Log
+import localizacaoapp.com.br.localizacaoapp.ativar_servico_reboot.AtivarServicoEnviar
 
 class ServicoAlarme : Service() {
     override fun onBind(p0: Intent?): IBinder? {
@@ -15,17 +16,17 @@ class ServicoAlarme : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        var isAlarmeAtivo = (PendingIntent.getBroadcast(this, 0,  Intent(this, ServicoEnviarCordenadas().javaClass), PendingIntent.FLAG_NO_CREATE) != null);
-        if(isAlarmeAtivo) {
+        var isAlarmeAtivo = (PendingIntent.getBroadcast(this, 0,  Intent(this, AtivarServicoEnviar().javaClass), PendingIntent.FLAG_NO_CREATE) != null);
+        if(!isAlarmeAtivo) {
             criarAlarme(ConverteMiliSegundos.converteHoras(1))
         }
         return (START_NOT_STICKY)
     }
 
     private fun cancelarAlarme() {
-        //boolean isAlarmeAtivo = (PendingIntent.getBroadcast(this, 0, new Intent(this, ServicoEnviarCordenadas().javaClass), PendingIntent.FLAG_NO_CREATE) != null);
+        //boolean isAlarmeAtivo = (PendingIntent.getBroadcast(this, 0, new Intent(this, AtivarServicoEnviar().javaClass), PendingIntent.FLAG_NO_CREATE) != null);
         //if(isAlarmeAtivo) {
-        val intent1 = Intent(this, ServicoEnviarCordenadas().javaClass)
+        val intent1 = Intent(this, AtivarServicoEnviar().javaClass)
         val p = PendingIntent.getBroadcast(this, 0, intent1, 0)
 
         val alarme = getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -40,7 +41,7 @@ class ServicoAlarme : Service() {
 
         Log.e("Scripit", "tempo de alarme: $timeAlarme")
 
-        val intent1 = Intent(this, ServicoEnviarCordenadas().javaClass)
+        val intent1 = Intent(this, AtivarServicoEnviar().javaClass)
         val p = PendingIntent.getBroadcast(this, 0, intent1, 0)
         val alarme = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val horaSistema = SystemClock.elapsedRealtime()

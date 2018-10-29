@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         Permissoes.solicitarPermissoes(this)
         var intent = Intent(this, ServicoAlarme().javaClass)
         startService(intent)
+
         var localizacao = Localizacao(this).getLocalizacao()
         txtLatitude.text =  "Latitude: ${localizacao?.latitude}"
         txtLongitude.text =  "Longitude ${localizacao?.longitude}"
