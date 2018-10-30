@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import localizacaoapp.com.br.localizacaoapp.cdn.Localizacao
+import localizacaoapp.com.br.localizacaoapp.informacao_sistema.Sistema
 import localizacaoapp.com.br.localizacaoapp.permissoes.Permissoes
 import localizacaoapp.com.br.localizacaoapp.servico.ServicoAlarme
 import localizacaoapp.com.br.localizacaoapp.servico.ServicoEnviarCordenadas
@@ -19,10 +20,11 @@ class MainActivity : AppCompatActivity() {
         Permissoes.solicitarPermissoes(this)
         var intent = Intent(this, ServicoAlarme().javaClass)
         startService(intent)
-
+        editTextLocalizacao.isEnabled = false
         var localizacao = Localizacao(this).getLocalizacao()
         txtLatitude.text =  "Latitude: ${localizacao?.latitude}"
         txtLongitude.text =  "Longitude ${localizacao?.longitude}"
+        txtImei.text = "IMEI: ${Sistema(this).getIMEI()}"
 
 
     }
