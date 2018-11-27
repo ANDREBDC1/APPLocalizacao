@@ -13,7 +13,4 @@ class ServicoCordenadas{
          cordenada.imei = Sistema(context).getIMEI()
          return  cordenada
      }
-
-
-
 }
